@@ -1,0 +1,90 @@
+/* Archify Diagram Editor - Global Styles */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* React Flow Custom Styles */
+.react-flow__node {
+  cursor: grab;
+}
+
+.react-flow__node:active {
+  cursor: grabbing;
+}
+
+.react-flow__edge-path {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Animasi kabel: dash lebih panjang + tempo lebih cepat biar aliran datanya kelihatan jelas */
+.react-flow__edge.animated path {
+  stroke-dasharray: 9 7;
+  animation: dashdraw 0.45s linear infinite;
+}
+
+@keyframes dashdraw {
+  to {
+    stroke-dashoffset: -32;
+  }
+}
+
+/* Button Hover Effects */
+button {
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(2, 132, 199, 0.25);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Smooth Animations */
+.react-flow__node,
+.react-flow__edge {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Delete Mode Visual Cue */
+.delete-mode .react-flow__node {
+  cursor: crosshair !important;
+}
+.delete-mode .react-flow__node:hover {
+  outline: 2px dashed #ef4444 !important;
+  outline-offset: 4px;
+}
+.delete-mode .react-flow__edge:hover path {
+  stroke: #ef4444 !important;
+  stroke-width: 4px !important;
+}
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(125, 211, 252, 0.6);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(56, 189, 248, 0.85);
+}
